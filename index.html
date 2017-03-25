@@ -31,6 +31,11 @@
             right: 0;
             background: url(./images/wallpaper1.jpg) no-repeat;
             background-size: cover;
+            transition: opacity 400ms;
+            opacity: 1;
+        }
+        .Walle__content--hide {
+            opacity: 0;
         }
     </style>
 </head>
@@ -44,13 +49,26 @@
         </section>
     </div>
     <script>
-        document.addEventListener("DOMContentLoaded", init)
+        document.addEventListener('DOMContentLoaded', init)
 
         function init() {
             const BEGIN = 1489507200001
             const NUMBER_OF_DAY = 100
             const progress = getProgress(Date.now(), getDays(BEGIN, NUMBER_OF_DAY))
             setProgress(progress, NUMBER_OF_DAY)
+
+            mountEvent()
+        }
+
+        function mountEvent() {
+            const $Walle = document.querySelector('.Walle')
+            const $wallpaper = document.querySelector('.Walle__content')
+
+            $Walle.addEventListener('touchstart', toggleWallpaper)
+
+            function toggleWallpaper() {
+                $wallpaper.classList.toggle('Walle__content--hide')
+            }
         }
 
 
