@@ -9,16 +9,40 @@
             margin: 0;
             padding: 0;
         }
-        .rest {
+        .Walle {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+        .Walle__text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .Walle__rest {
             color: red;
+        }
+        .Walle__content {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: url(./images/wallpaper1.jpg) no-repeat;
+            background-size: contain;
         }
     </style>
 </head>
 <body>
-    <header>
-        只剩<span class="rest">100</span>天
-    </header>
-
+    <div class="Walle">
+        <section class="Walle__text">
+            只剩<span class="Walle__rest">100</span>天
+        </section>
+        <section class="Walle__content">
+            
+        </section>
+    </div>
     <script>
         document.addEventListener("DOMContentLoaded", init)
 
@@ -58,7 +82,7 @@
 
         function setProgress(progress, total) {
             const rest = total - progress
-            const $rest = document.querySelector('.rest')
+            const $rest = document.querySelector('.Walle__rest')
 
             $rest.textContent = rest
         }
