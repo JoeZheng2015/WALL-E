@@ -3,6 +3,7 @@ this.addEventListener('install', function(event) {
     caches.open('v2').then(function(cache) {
       return cache.addAll([
         '/',
+        '/WALL-E/'
         'index.html',
         'app.js',
         'images/wallpaper1.jpg',
