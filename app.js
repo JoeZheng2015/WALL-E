@@ -64,3 +64,10 @@ function registerSW() {
         }
     })
 }
+
+function getElapse(start, end) {
+}
+
+function formatTime(ms) {
+}
+
