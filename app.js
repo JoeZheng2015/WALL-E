@@ -66,8 +66,21 @@ function registerSW() {
 }
 
 function getElapse(start, end) {
+    const ms = end - start
+    const day = ~~(ms / (1000 * 60 * 60 * 24))
+    const hour = ~~(ms / (1000 * 60 * 60)) % 24
+    const minute = ~~(ms / (1000 * 60)) % 60 
+    const second = ~~(ms / 1000) % 60
+
+    return {
+        day: formatTime(day),
+        hour: formatTime(hour),
+        minute: formatTime(minute),
+        second: formatTime(second),
+    }
 }
 
 function formatTime(ms) {
+    return ms < 9 ? '0' + ms : '' + ms
 }
 
