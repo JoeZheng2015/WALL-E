@@ -6,6 +6,7 @@ function init() {
     const NUMBER_OF_DAY = 100
     const progress = getProgress(Date.now(), getDays(BEGIN, NUMBER_OF_DAY))
     setProgress(progress, NUMBER_OF_DAY)
+    setMeet(BEGIN)
 
     mountEvent()
 }
@@ -65,11 +66,26 @@ function registerSW() {
     })
 }
 
+function setMeet(begin) {
+    const $day = document.querySelector('.Walle__day')
+    const $hour = document.querySelector('.Walle__hour')
+    const $minute = document.querySelector('.Walle__minute')
+    const $second = document.querySelector('.Walle__second')
+
+    setInterval(() => {
+        const {day, hour, minute, second} = getElapse(begin, Date.now())
+        $day.textContent = day
+        $hour.textContent = hour
+        $minute.textContent = minute
+        $second.textContent = second
+    }, 100)
+}
+
 function getElapse(start, end) {
     const ms = end - start
     const day = ~~(ms / (1000 * 60 * 60 * 24))
     const hour = ~~(ms / (1000 * 60 * 60)) % 24
-    const minute = ~~(ms / (1000 * 60)) % 60 
+    const minute = ~~(ms / (1000 * 60)) % 60
     const second = ~~(ms / 1000) % 60
 
     return {
