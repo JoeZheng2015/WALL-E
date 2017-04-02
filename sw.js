@@ -3,6 +3,7 @@ const relativeUrl = [
     'index.html',
     'app.js',
     'images/wallpaper1.jpg',
+    'font/digital.ttf',
 ]
 
 this.addEventListener('install', function(event) {
