@@ -98,6 +98,6 @@ function getElapse(start, end) {
 }
 
 function formatTime(ms) {
-    return ms < 9 ? '0' + ms : '' + ms
+    return ms < 10 ? '0' + ms : '' + ms
 }
 
