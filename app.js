@@ -3,9 +3,10 @@ document.addEventListener('DOMContentLoaded', init)
 
 function init() {
     const BEGIN = 1489507200001
+    const END = 1491530637683
     const OFFSET = 1
     const NUMBER_OF_DAY = 100 + OFFSET
-    const progress = getProgress(Date.now(), getDays(BEGIN, NUMBER_OF_DAY))
+    const progress = getProgress(END, getDays(BEGIN, NUMBER_OF_DAY))
     setProgress(progress, NUMBER_OF_DAY)
     setMeet(BEGIN)
 
