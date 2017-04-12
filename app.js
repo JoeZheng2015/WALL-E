@@ -7,7 +7,7 @@ function init() {
     const OFFSET = 1
     const NUMBER_OF_DAY = 100 + OFFSET
     const progress = getProgress(END, getDays(BEGIN, NUMBER_OF_DAY))
-    setProgress(progress, NUMBER_OF_DAY)
+    setProgress(progress)
     setMeet(BEGIN)
 
     mountEvent()
@@ -51,11 +51,10 @@ function getProgress(now, days) {
     return days.findIndex(day => day > now)
 }
 
-function setProgress(progress, total) {
-    const rest = total - progress
+function setProgress(progress) {
     const $rest = document.querySelector('.Walle__rest')
 
-    $rest.textContent = rest
+    $rest.textContent = progress
 }
 
 function registerSW() {
