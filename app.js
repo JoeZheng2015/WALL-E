@@ -4,11 +4,12 @@ document.addEventListener('DOMContentLoaded', init)
 function init() {
     const BEGIN = 1489507200001
     const END = 1491530637683
+    const MEET_END = 1492772406604
     const OFFSET = 1
     const NUMBER_OF_DAY = 100 + OFFSET
     const progress = getProgress(END, getDays(BEGIN, NUMBER_OF_DAY))
     setProgress(progress)
-    setMeet(BEGIN)
+    setMeet(BEGIN, MEET_END)
 
     mountEvent()
 }
@@ -67,14 +68,14 @@ function registerSW() {
     })
 }
 
-function setMeet(begin) {
+function setMeet(begin, end) {
     const $day = document.querySelector('.Walle__day')
     const $hour = document.querySelector('.Walle__hour')
     const $minute = document.querySelector('.Walle__minute')
     const $second = document.querySelector('.Walle__second')
 
     setInterval(() => {
-        const {day, hour, minute, second} = getElapse(begin, Date.now())
+        const {day, hour, minute, second} = getElapse(begin, end)
         $day.textContent = day
         $hour.textContent = hour
         $minute.textContent = minute
